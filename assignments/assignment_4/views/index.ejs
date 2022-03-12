@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpressJS</title>
+</head>
+<body>
+    <h1>Fake Data</h1>
+    <table style="width: 50%; border: 1px solid;" >
+        <tr>
+            <th>Name</th>
+            <th>Email
+            </th>
+            <th>Select
+            </th>
+            <th>Delete
+            </th>
+        </tr>
+            <% users.forEach(item=>{%>
+                
+            <tr>
+                <td style="border: 1px solid;"><%= item.name %></td>
+                <td style="border: 1px solid;"><%= item.email %></td>
+                <td style="border: 1px solid;">
+                    <form action="/user/<%=item._id%>/select?_method=PUT" method="POST">
+                        <button type="submit">Select</button>
+                    </form>
+                    </td>
+                <td style="border: 1px solid;">
+                    <form action="/user/<%=item._id%>/delete?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                    </td>
+                
+            </tr>
+            <% });%>
+    </table>
+    <br><br>
+<a href="/form">ADD USER</a>
+</body>
+</html>
