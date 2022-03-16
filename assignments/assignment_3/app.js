@@ -15,7 +15,6 @@ for (let i=0; i<9;i++){
         email:faker.internet.email()
     })
 }
-console.log(users)
 app.get("/",(req,res)=>{
     res.status(200).render('index',{users});
 })
